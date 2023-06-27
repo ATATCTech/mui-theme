@@ -7,7 +7,7 @@ export function Theme(props) {
     const systemThemeMode = useSystemThemeMode();
     const themeMode = props.themeMode == null ? systemThemeMode : requireStrictThemeMode(props.themeMode, systemThemeMode);
     const themeConfig = props.themeConfig == null ? defaultThemeConfig : props.themeConfig;
-    const theme = useMemo(() => createTheme(themeConfig(themeMode)), [themeConfig]);
+    const theme = useMemo(() => createTheme(themeConfig(themeMode)), [themeMode]);
     return (_jsxs(ThemeProvider, { theme: theme, children: [_jsx(CssBaseline, {}), props.children] }));
 }
 //# sourceMappingURL=theme.js.map

@@ -8,7 +8,7 @@ export function Theme(props: {readonly themeMode?: StrictThemeMode, readonly the
     const systemThemeMode = useSystemThemeMode();
     const themeMode = props.themeMode == null ? systemThemeMode : requireStrictThemeMode(props.themeMode, systemThemeMode);
     const themeConfig = props.themeConfig == null ? defaultThemeConfig : props.themeConfig;
-    const theme = useMemo(() => createTheme(themeConfig(themeMode)), [themeConfig]);
+    const theme = useMemo(() => createTheme(themeConfig(themeMode)), [themeMode]);
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
