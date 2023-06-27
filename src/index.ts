@@ -4,13 +4,6 @@ export {
     ThemeConfig
 } from "./types";
 
-export {
-    requireThemeMode,
-    useSystemThemeMode,
-    useThemeModeCookie,
-    useThemeMode
-} from "./mode";
-
 export {Theme} from "./theme";
 
 export {ThemeSwitch} from "./switch";
@@ -18,5 +11,8 @@ export {ThemeSwitch} from "./switch";
 export {
     defaultThemeConfig,
     ATATCThemeConfig,
-    cambridgeBlueThemeConfig
+    cambridgeBlueThemeConfig,
+    winterThemeConfig,
+    retroThemeConfig,
+    earthThemeConfig
 } from "./presets";
