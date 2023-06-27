@@ -1,13 +1,26 @@
-import {StrictThemeMode, ThemeConfig} from "./types";
+import {StrictThemeMode, ThemeConfig, ThemeConfigMapping} from "./types";
 import {requireStrictThemeMode, useSystemThemeMode} from "./mode";
 import {ReactNode, useMemo} from "react";
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
-import {defaultThemeConfig} from "./presets";
+import {defaultThemeConfig, themeConfigMapping} from "./presets";
 
-export function Theme(props: {readonly themeMode?: StrictThemeMode, readonly themeConfig?: ThemeConfig, readonly children: ReactNode}): ReactNode {
+export function Theme(props: {themeMode?: StrictThemeMode, themeConfig?: ThemeConfig, children: ReactNode}): ReactNode {
     const systemThemeMode = useSystemThemeMode();
     const themeMode = props.themeMode == null ? systemThemeMode : requireStrictThemeMode(props.themeMode, systemThemeMode);
     const themeConfig = props.themeConfig == null ? defaultThemeConfig : props.themeConfig;
+    const theme = useMemo(() => createTheme(themeConfig(themeMode)), [themeMode, themeConfig]);
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline/>
+            {props.children}
+        </ThemeProvider>
+    );
+}
+
+export function DynamicTheme(props: {themeMode?: StrictThemeMode, themeConfigID?: string, themeConfigMapping: ThemeConfigMapping, children: ReactNode}) {
+    const systemThemeMode = useSystemThemeMode();
+    const themeMode = props.themeMode == null ? systemThemeMode : requireStrictThemeMode(props.themeMode, systemThemeMode);
+    const themeConfig = props.themeConfigID == null ? defaultThemeConfig : themeConfigMapping(props.themeConfigID);
     const theme = useMemo(() => createTheme(themeConfig(themeMode)), [themeMode, themeConfig]);
     return (
         <ThemeProvider theme={theme}>

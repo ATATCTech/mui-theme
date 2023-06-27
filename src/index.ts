@@ -3,11 +3,14 @@ export {
     useSystemThemeMode,
     useThemeModeCookie,
     useThemeMode,
-    useThemeConfigCookie,
-    useThemeConfig
+    useThemeConfigIDCookie,
+    useThemeConfigID
 } from "./mode"
 
-export {Theme} from "./theme";
+export {
+    Theme,
+    DynamicTheme
+} from "./theme";
 
 export {ThemeSwitch} from "./switch";
 

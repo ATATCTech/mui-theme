@@ -1,7 +1,6 @@
 import { useMediaQuery } from "@mui/material";
 import { useCookies } from "react-cookie";
 import { useEffect, useState } from "react";
-import { defaultThemeConfig } from "./presets";
 export function requireThemeMode(themeMode, defaultMode = "fs") {
     return ["light", "dark"].includes(themeMode) ? themeMode : defaultMode;
 }
@@ -29,21 +28,21 @@ export function useThemeMode() {
     useEffect(() => setThemeMode(requireStrictThemeMode(getTMC(), systemThemeMode)), [getTMC, systemThemeMode]);
     return [themeMode, (themeMode) => setThemeMode(requireStrictThemeMode(themeMode, systemThemeMode)), systemThemeMode];
 }
-export function useThemeConfigCookie(themeConfigMapping) {
+export function useThemeConfigIDCookie() {
     const [cookies, setCookie, removeCookie] = useCookies(["themeConfigID"]);
     return [
         () => {
             const tcID = cookies["themeConfigID"];
-            return tcID == null ? defaultThemeConfig : themeConfigMapping(tcID);
+            return tcID == null ? "default" : tcID;
         },
         (themeConfigID) => setCookie("themeConfigID", themeConfigID),
         () => removeCookie("themeConfigID")
     ];
 }
-export function useThemeConfig(themeConfigMapping) {
-    const [getTCC] = useThemeConfigCookie(themeConfigMapping);
-    const [themeConfig, setThemeConfig] = useState(defaultThemeConfig);
-    useEffect(() => setThemeConfig(getTCC()), [getTCC]);
-    return [themeConfig, (themeConfigID) => setThemeConfig(themeConfigMapping(themeConfigID))];
+export function useThemeConfigID() {
+    const [getTCC] = useThemeConfigIDCookie();
+    const [themeConfigID, setThemeConfigID] = useState("default");
+    useEffect(() => setThemeConfigID(getTCC()), [getTCC]);
+    return [themeConfigID, (themeConfigID) => setThemeConfigID(themeConfigID)];
 }
 //# sourceMappingURL=mode.js.map
