@@ -100,4 +100,106 @@ export const cambridgeBlueThemeConfig = (mode) => ({
             }),
     }
 });
+export const winterThemeConfig = (mode) => ({
+    palette: {
+        mode,
+        ...(mode === 'light'
+            ? {
+                primary: {
+                    light: "#749ace",
+                    main: "#4F709C",
+                    dark: "#213555",
+                    contrastText: "#fff"
+                },
+                secondary: {
+                    light: "#F5EFE7",
+                    main: "#D8C4B6",
+                    dark: "#cca185",
+                    contrastText: "#fff"
+                },
+            }
+            : {
+                primary: {
+                    light: "#749ace",
+                    main: "#4F709C",
+                    dark: "#213555",
+                    contrastText: "#000"
+                },
+                secondary: {
+                    light: "#F5EFE7",
+                    main: "#D8C4B6",
+                    dark: "#cca185",
+                    contrastText: "#000"
+                },
+            }),
+    }
+});
+export const retroThemeConfig = (mode) => ({
+    palette: {
+        mode,
+        ...(mode === 'light'
+            ? {
+                primary: {
+                    light: "#FFD0D0",
+                    main: "#FF9EAA",
+                    dark: "#bd5c68",
+                    contrastText: "#fff"
+                },
+                secondary: {
+                    light: "#C1ECE4",
+                    main: "#3AA6B9",
+                    dark: "#2d778a",
+                    contrastText: "#fff"
+                },
+            }
+            : {
+                primary: {
+                    light: "#FFD0D0",
+                    main: "#FF9EAA",
+                    dark: "#bd5c68",
+                    contrastText: "#000"
+                },
+                secondary: {
+                    light: "#C1ECE4",
+                    main: "#3AA6B9",
+                    dark: "#2d778a",
+                    contrastText: "#000"
+                },
+            }),
+    }
+});
+export const earthThemeConfig = (mode) => ({
+    palette: {
+        mode,
+        ...(mode === 'light'
+            ? {
+                primary: {
+                    light: "#cff3da",
+                    main: "#A2CDB0",
+                    dark: "#85A389",
+                    contrastText: "#fff"
+                },
+                secondary: {
+                    light: "#FFD89C",
+                    main: "#F1C27B",
+                    dark: "#c79f5e",
+                    contrastText: "#fff"
+                },
+            }
+            : {
+                primary: {
+                    light: "#cff3da",
+                    main: "#A2CDB0",
+                    dark: "#85A389",
+                    contrastText: "#000"
+                },
+                secondary: {
+                    light: "#FFD89C",
+                    main: "#F1C27B",
+                    dark: "#c79f5e",
+                    contrastText: "#000"
+                },
+            }),
+    }
+});
 //# sourceMappingURL=presets.js.map
