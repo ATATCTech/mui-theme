@@ -12,7 +12,7 @@ npm i @atatctech/mui-theme
 
 ### Quick Start
 
-```typescript
+```tsx
 function App(): ReactNode {
     return (
         <Theme>
@@ -24,7 +24,7 @@ function App(): ReactNode {
 
 ### Dynamic Control
 
-```typescript
+```tsx
 function App(): ReactNode {
     const [themeMode, setThemeMode, systemThemeMode] = useThemeMode();
     return (
@@ -37,7 +37,7 @@ function App(): ReactNode {
 
 ### Cookies
 
-```typescript
+```tsx
 const [getTMC, setTMC, removeTMC] = useThemeModeCookies();
 ```
 
@@ -49,7 +49,7 @@ const [getTMC, setTMC, removeTMC] = useThemeModeCookies();
 
 ### Theme Config
 
-```typescript
+```tsx
 function App(): ReactNode {
     const [themeMode, setThemeMode, systemThemeMode] = useThemeMode();
     return (
