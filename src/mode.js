@@ -10,7 +10,7 @@ export function requireStrictThemeMode(themeMode, defaultMode) {
 export function useSystemThemeMode() {
     return useMediaQuery("(prefers-color-scheme: light)") ? "light" : "dark";
 }
-export function useThemeModeCookies() {
+export function useThemeModeCookie() {
     const [cookies, setCookie, removeCookie] = useCookies(["themeMode"]);
     return [
         () => {
@@ -23,7 +23,7 @@ export function useThemeModeCookies() {
 }
 export function useThemeMode() {
     const systemThemeMode = useSystemThemeMode();
-    const [getTMC] = useThemeModeCookies();
+    const [getTMC] = useThemeModeCookie();
     const [themeMode, setThemeMode] = useState(systemThemeMode);
     useEffect(() => {
         setThemeMode(requireStrictThemeMode(getTMC(), systemThemeMode));
