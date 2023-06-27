@@ -7,7 +7,7 @@ export {
 export {
     requireThemeMode,
     useSystemThemeMode,
-    useThemeModeCookies,
+    useThemeModeCookie,
     useThemeMode
 } from "./mode";
 

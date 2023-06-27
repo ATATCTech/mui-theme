@@ -1,9 +1,9 @@
 {
   "name": "@atatctech/mui-theme",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "ATATC",
-  "description": "The ultimate dynamic theme switching solution for MUI that adapts to SSR.",
+  "description": "The ultimate dynamic theme-switching solution for MUI that adapts to SSR.",
   "keywords": [
     "mui",
     "material-ui",
