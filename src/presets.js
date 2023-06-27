@@ -66,7 +66,7 @@ export const ATATCThemeConfig = (mode) => ({
             }),
     }
 });
-export const cambridgeBlueThemeConfig = (mode) => ({
+export const cambridgeThemeConfig = (mode) => ({
     palette: {
         mode,
         ...(mode === 'light'
@@ -202,4 +202,20 @@ export const earthThemeConfig = (mode) => ({
             }),
     }
 });
+export function themeConfigMapping(id) {
+    switch (id) {
+        case "atatc":
+            return ATATCThemeConfig;
+        case "cambridge":
+            return cambridgeThemeConfig;
+        case "winter":
+            return winterThemeConfig;
+        case "retro":
+            return retroThemeConfig;
+        case "earth":
+            return earthThemeConfig;
+        default:
+            return defaultThemeConfig;
+    }
+}
 //# sourceMappingURL=presets.js.map

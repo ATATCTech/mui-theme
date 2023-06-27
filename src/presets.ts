@@ -70,7 +70,7 @@ export const ATATCThemeConfig: ThemeConfig = (mode: StrictThemeMode) => ({
     }
 });
 
-export const cambridgeBlueThemeConfig: ThemeConfig = (mode: StrictThemeMode) => ({
+export const cambridgeThemeConfig: ThemeConfig = (mode: StrictThemeMode) => ({
     palette: {
         mode,
         ...(mode === 'light'
@@ -209,3 +209,20 @@ export const earthThemeConfig: ThemeConfig = (mode: StrictThemeMode) => ({
             }),
     }
 });
+
+export function themeConfigMapping(id: string): ThemeConfig {
+    switch (id) {
+        case "atatc":
+            return ATATCThemeConfig;
+        case "cambridge":
+            return cambridgeThemeConfig;
+        case "winter":
+            return winterThemeConfig;
+        case "retro":
+            return retroThemeConfig;
+        case "earth":
+            return earthThemeConfig;
+        default:
+            return defaultThemeConfig;
+    }
+}

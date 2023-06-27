@@ -2,7 +2,9 @@ export {
     requireThemeMode,
     useSystemThemeMode,
     useThemeModeCookie,
-    useThemeMode
+    useThemeMode,
+    useThemeConfigCookie,
+    useThemeConfig
 } from "./mode"
 
 export {Theme} from "./theme";
@@ -12,8 +14,9 @@ export {ThemeSwitch} from "./switch";
 export {
     defaultThemeConfig,
     ATATCThemeConfig,
-    cambridgeBlueThemeConfig,
+    cambridgeThemeConfig,
     winterThemeConfig,
     retroThemeConfig,
-    earthThemeConfig
+    earthThemeConfig,
+    themeConfigMapping
 } from "./presets";
