@@ -1,8 +1,9 @@
 export {
-    StrictThemeMode,
-    ThemeMode,
-    ThemeConfig
-} from "./types";
+    requireThemeMode,
+    useSystemThemeMode,
+    useThemeModeCookie,
+    useThemeMode
+} from "./mode"
 
 export {Theme} from "./theme";
 
