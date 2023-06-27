@@ -1,0 +1,42 @@
+{
+  "name": "@atatctech/mui-theme",
+  "type": "module",
+  "version": "1.0.0",
+  "author": "ATATC",
+  "description": "The ultimate dynamic theme switching solution for MUI that adapts to SSR.",
+  "keywords": [
+    "mui",
+    "material-ui",
+    "theme",
+    "theme-switching",
+    "dark",
+    "dark-mode",
+    "react",
+    "ssr",
+    "nextjs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ATATCTech/mui-theme"
+  },
+  "license": "The Apache License, Version 2.0",
+  "homepage": "https://github.com/ATATCTech/mui-theme",
+  "main": "./src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@mui/material": "^5.13.6",
+    "axios": "^1.4.0",
+    "eslint": "8.43.0",
+    "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
+    "typescript": "^5.0.4"
+  }
+}
