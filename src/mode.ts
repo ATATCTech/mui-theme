@@ -34,5 +34,5 @@ export function useThemeMode(): [StrictThemeMode, (themeMode: ThemeMode) => void
     useEffect(() => {
         setThemeMode(requireStrictThemeMode(getTMC(), systemThemeMode));
     }, [getTMC, systemThemeMode]);
-    return [themeMode, setThemeMode as (themeMode: ThemeMode) => void, systemThemeMode];
+    return [themeMode, (themeMode: ThemeMode) => setThemeMode(requireStrictThemeMode(themeMode, systemThemeMode)), systemThemeMode];
 }

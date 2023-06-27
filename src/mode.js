@@ -28,6 +28,6 @@ export function useThemeMode() {
     useEffect(() => {
         setThemeMode(requireStrictThemeMode(getTMC(), systemThemeMode));
     }, [getTMC, systemThemeMode]);
-    return [themeMode, setThemeMode, systemThemeMode];
+    return [themeMode, (themeMode) => setThemeMode(requireStrictThemeMode(themeMode, systemThemeMode)), systemThemeMode];
 }
 //# sourceMappingURL=mode.js.map
