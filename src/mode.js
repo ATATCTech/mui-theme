@@ -21,11 +21,14 @@ export function useThemeModeCookie() {
         () => removeCookie("themeMode")
     ];
 }
-export function useThemeMode() {
+export function useThemeMode(ignoreCookie = false) {
     const systemThemeMode = useSystemThemeMode();
     const [getTMC] = useThemeModeCookie();
     const [themeMode, setThemeMode] = useState(systemThemeMode);
-    useEffect(() => setThemeMode(requireStrictThemeMode(getTMC(), systemThemeMode)), [getTMC, systemThemeMode]);
+    if (ignoreCookie)
+        useEffect(() => setThemeMode(systemThemeMode), [systemThemeMode]);
+    else
+        useEffect(() => setThemeMode(requireStrictThemeMode(getTMC(), systemThemeMode)), [systemThemeMode]);
     return [themeMode, (themeMode) => setThemeMode(requireStrictThemeMode(themeMode, systemThemeMode)), systemThemeMode];
 }
 export function useThemeConfigIDCookie() {
@@ -42,7 +45,7 @@ export function useThemeConfigIDCookie() {
 export function useThemeConfigID() {
     const [getTCC] = useThemeConfigIDCookie();
     const [themeConfigID, setThemeConfigID] = useState("default");
-    useEffect(() => setThemeConfigID(getTCC()), [getTCC]);
+    useEffect(() => setThemeConfigID(getTCC()), []);
     return [themeConfigID, (themeConfigID) => setThemeConfigID(themeConfigID)];
 }
 //# sourceMappingURL=mode.js.map

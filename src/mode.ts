@@ -27,11 +27,12 @@ export function useThemeModeCookie(): [() => ThemeMode, (themeMode: ThemeMode) =
     ];
 }
 
-export function useThemeMode(): [StrictThemeMode, (themeMode: ThemeMode) => void, StrictThemeMode] {
+export function useThemeMode(ignoreCookie: boolean = false): [StrictThemeMode, (themeMode: ThemeMode) => void, StrictThemeMode] {
     const systemThemeMode = useSystemThemeMode();
     const [getTMC] = useThemeModeCookie();
     const [themeMode, setThemeMode] = useState<StrictThemeMode>(systemThemeMode);
-    useEffect(() => setThemeMode(requireStrictThemeMode(getTMC(), systemThemeMode)), [getTMC, systemThemeMode]);
+    if (ignoreCookie) useEffect(() => setThemeMode(systemThemeMode), [systemThemeMode]);
+    else useEffect(() => setThemeMode(requireStrictThemeMode(getTMC(), systemThemeMode)), [systemThemeMode]);
     return [themeMode, (themeMode: ThemeMode) => setThemeMode(requireStrictThemeMode(themeMode, systemThemeMode)), systemThemeMode];
 }
 
@@ -50,6 +51,6 @@ export function useThemeConfigIDCookie(): [() => string, (themeConfigID: string)
 export function useThemeConfigID(): [string, (themeConfigID: string) => void] {
     const [getTCC] = useThemeConfigIDCookie();
     const [themeConfigID, setThemeConfigID] = useState<string>("default");
-    useEffect(() => setThemeConfigID(getTCC()), [getTCC]);
+    useEffect(() => setThemeConfigID(getTCC()), []);
     return [themeConfigID, (themeConfigID: string) => setThemeConfigID(themeConfigID)];
 }
