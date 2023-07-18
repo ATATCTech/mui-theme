@@ -12,7 +12,7 @@ export {
     DynamicTheme
 } from "./theme";
 
-export {ThemeSwitch} from "./switch";
+export {ThemeModeSwitch} from "./switch";
 
 export {
     defaultThemeConfig,
