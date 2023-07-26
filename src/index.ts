@@ -5,7 +5,7 @@ export {
     useThemeMode,
     useThemeConfigIDCookie,
     useThemeConfigID
-} from "./mode"
+} from "./mode";
 
 export {
     Theme,
