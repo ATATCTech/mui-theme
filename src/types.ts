@@ -1,4 +1,4 @@
-import {ThemeOptions} from "@mui/material";
+import {ThemeOptions} from "@mui/material/styles";
 
 export type StrictThemeMode = "light" | "dark";
 export type ThemeMode = StrictThemeMode | "fs";

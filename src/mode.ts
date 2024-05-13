@@ -1,4 +1,4 @@
-import {useMediaQuery} from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import {useCookies} from "react-cookie";
 import {useEffect, useState} from "react";
 import {StrictThemeMode, ThemeMode} from "./types";
