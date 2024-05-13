@@ -1,7 +1,7 @@
 import {StrictThemeMode, ThemeConfig, ThemeConfigMapping} from "./types";
 import {requireStrictThemeMode, useSystemThemeMode} from "./mode";
 import {ReactNode, useMemo} from "react";
-import {createTheme, ThemeProvider} from "@mui/material/styles";
+import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 import {defaultThemeConfig, themeConfigMapping} from "./presets";
 
 export function Theme(props: {themeMode?: StrictThemeMode, themeConfig?: ThemeConfig, children: ReactNode}): ReactNode {
@@ -11,6 +11,7 @@ export function Theme(props: {themeMode?: StrictThemeMode, themeConfig?: ThemeCo
     const theme = useMemo(() => createTheme(themeConfig(themeMode)), [themeMode, themeConfig]);
     return (
         <ThemeProvider theme={theme}>
+            <CssBaseline/>
             {props.children}
         </ThemeProvider>
     );
@@ -23,6 +24,7 @@ export function DynamicTheme(props: {themeMode?: StrictThemeMode, themeConfigID?
     const theme = useMemo(() => createTheme(themeConfig(themeMode)), [themeMode, themeConfig]);
     return (
         <ThemeProvider theme={theme}>
+            <CssBaseline/>
             {props.children}
         </ThemeProvider>
     );
